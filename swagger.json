@@ -771,11 +771,110 @@
           }
         }
       }
+    },
+    "/transaction/{Category}": {
+      "get": {
+        "tags": [
+          "Experience API"
+        ],
+        "summary": "Get Transactions based on Category",
+        "security": [
+          {
+          
+          }
+        ],
+        "description": "<p>This API returns  monthlywise Transaction list based on Category Spends. It return transaction selected from below Categories of Top 10 Categories 1) Automobile 2) Entertainment 3) Food 4) Games 5) Groceries 6) HouseHolds 7) Insurance 8) Investements 9) Medical 10 Shopping</p>",
+        "operationId": "getCategorySpends",
+        "produces": [
+					"application/json"
+				],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CategorySpendsJSON"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorUserNotLoggedIn"
+            }
+          }
+        }
+      }
     }
+
     
   },
   
   "definitions": {
+    "TransactionCategoryJSON": {
+      "required": [
+        "2019"
+
+      ],
+      "properties": {
+        "2019": {
+          "$ref": "#/definitions/MonthlyJSON"
+        }
+      }
+    },
+    "MonthlyJSON": {
+      "required": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "properties": {
+        "Jan": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Feb": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Mar": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Apr": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "May": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Jun": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Jul": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Aug": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Sep": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Oct": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Nov": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        },
+        "Dec": {
+          "$ref": "#/definitions/TransactionRequestBodyJsonV200"
+        }
+        
+      }
+    },
     "CategorySpendsJSON": {
       "required": [
         "2019",
