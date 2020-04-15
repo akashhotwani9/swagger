@@ -707,11 +707,109 @@
           }
         }
       }
+    },
+    "/Saving": {
+      "get": {
+        "tags": [
+          "Experience API"
+        ],
+        "summary": "Get Savings",
+        "security": [
+          {
+          
+          }
+        ],
+        "description": "<p>This API returns Saving data of user from his Credits and Debits Transactions. It shows monthly wise Savings.</p>",
+        "operationId": "getSavings",
+        "produces": [
+					"application/json"
+				],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SavingsJSON"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorUserNotLoggedIn"
+            }
+          }
+        }
+      }
     }
     
   },
   
   "definitions": {
+    "SavingsJSON": {
+      "required": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ],
+      "properties": {
+        "01":{ "type": "string",
+          "example": "37779.27"
+        },
+        "02":{ 
+          "type": "string",
+          "example": "39706.86"
+        },
+        "03":{ 
+          "type": "string",
+          "example": "35729.74"
+        },
+        "04":{ 
+          "type": "string",
+          "example": "39831.05"
+        },
+        "05":{ 
+          "type": "string",
+          "example": "35346.03"
+        },
+        "06":{ 
+          "type": "string",
+          "example": "38142.07"
+        },
+        "07":{ 
+          "type": "string",
+          "example": "34988.96"
+        },
+        "08":{ 
+          "type": "string",
+          "example": "35354.93"
+        },
+        "09":{ 
+          "type": "string",
+          "example": "37471.47"
+        },
+        "10":{ 
+          "type": "string",
+          "example": "33494.94"
+        },
+        "11":{
+           "type": "string",
+          "example": "37208.47"
+        },
+        "12":{ 
+          "type": "string",
+          "example": "34935.66"
+        }
+
+      }
+    },
     "CurrencyExchangeJSON": {
       "required": [
         "Realtime Currency Exchange Rate"
