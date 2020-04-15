@@ -51,6 +51,9 @@
         "description": "<p>Get banks on this API instance<br />Returns a list of banks supported on this server:</p><ul><li>ID used as parameter in URLs</li><li>Short and full name of bank</li><li>Logo URL</li><li>Website</li></ul>",
         "operationId": "OBPv4.0.0-getBanks",
         "parameters": [],
+        "produces": [
+					"application/json"
+				],
         "responses": {
           "200": {
             "description": "Success",
