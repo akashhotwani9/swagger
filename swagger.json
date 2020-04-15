@@ -695,8 +695,8 @@
         "responses": {
           "200": {
             "description": "Success",
-            "examples": {
-              "application/json": "{\n    \"versions\": [\n        {\n            \"status\": \"CURRENT\",\n            \"updated\": \"2011-01-21T11:33:21Z\",\n            \"id\": \"v2.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v2/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        },\n        {\n            \"status\": \"EXPERIMENTAL\",\n            \"updated\": \"2013-07-23T11:33:21Z\",\n            \"id\": \"v3.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v3/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        }\n    ]\n}"
+            "schema": {
+              "$ref": "#/definitions/CurrencyExchangeJSON"
             }
           },
           "400": {
@@ -712,6 +712,68 @@
   },
   
   "definitions": {
+    "CurrencyExchangeJSON": {
+      "required": [
+        "Realtime Currency Exchange Rate"
+      ],
+      "properties": {
+        "Realtime Currency Exchange Rate": {
+          "$ref": "#/definitions/RealtimeCurrencyJSON"
+        }
+      }
+    },
+    "RealtimeCurrencyJSON": {
+      "required": [
+        "1. From_Currency Code",
+        "2. From_Currency Name",
+        "3. To_Currency Code",
+        "4. To_Currency Name",
+        "5. Exchange Rate",
+        "6. Last Refreshed",
+        "7. Time Zone",
+        "8. Bid Price",
+        "9. Ask Price"
+      ],
+      "properties": {
+        "1. From_Currency Code": {
+          "type": "string",
+          "example": "USD"
+        },
+        "2. From_Currency Name":{
+          "type": "string",
+          "example": "United States Dollar"
+        },
+        "3. To_Currency Code":{
+          "type": "string",
+          "example": "JPY"
+        },
+        "4. To_Currency Name":{
+          "type": "string",
+          "example": "Japanese Yen"
+        },
+        "5. Exchange Rate":{
+          "type": "string",
+          "example": "107.45700000"
+        },
+        "6. Last Refreshed":{
+          "type": "string",
+          "example": "2020-04-15 15:24:15"
+        },
+        "7. Time Zone":{
+          "type": "string",
+          "example": "UTC"
+        },
+        "8. Bid Price":{
+          "type": "string",
+          "example": "107.45700000"
+        },
+        "9. Ask Price":{
+          "type": "string",
+          "example": "107.46200000"
+        }
+
+      }
+    },
     "ErrorDataImportDisabled": {
       "properties": {
         "message": {
