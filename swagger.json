@@ -739,11 +739,151 @@
           }
         }
       }
+    },
+    "/Year": {
+      "get": {
+        "tags": [
+          "Experience API"
+        ],
+        "summary": "Get Categorywise Monthly Spends",
+        "security": [
+          {
+          
+          }
+        ],
+        "description": "<p>This API returns last 2 years monthlywise Category Spends. It return Top 10 Categories 1) Automobile 2) Entertainment 3) Food 4) Games 5) Groceries 6) HouseHolds 7) Insurance 8) Investements 9) Medical 10 Shopping</p>",
+        "operationId": "getCategorySpends",
+        "produces": [
+					"application/json"
+				],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CategorySpendsJSON"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorUserNotLoggedIn"
+            }
+          }
+        }
+      }
     }
     
   },
   
   "definitions": {
+    "CategorySpendsJSON": {
+      "required": [
+        "2019",
+        "2020"
+
+      ],
+      "properties": {
+        "2019": {
+          "$ref": "#/definitions/MonthJSON"
+        },
+        "2020": {
+          "$ref": "#/definitions/MonthJSON"
+        }
+      }
+    },
+    "MonthJSON": {
+      "required": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "properties": {
+        "Jan": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Feb": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Mar": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Apr": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "May": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Jun": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Jul": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Aug": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Sep": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Oct": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Nov": {
+          "$ref": "#/definitions/CategoryJSON"
+        },
+        "Dec": {
+          "$ref": "#/definitions/CategoryJSON"
+        }
+        
+      }
+    },
+    "CategoryJSON": {
+      "required": [
+        "Automobile",
+        "Entertainment",
+        "Food",
+        "Games",
+        "Groceries",
+        "Households",
+        "Insurance",
+        "Investments",
+        "Medical",
+        "Shopping"
+      ],
+      "properties": {
+        "Automobile":{"type": "string",
+          "example": "401.2"},
+        "Entertainment":{"type": "string",
+          "example": "200"},
+        "Food":{"type": "string",
+          "example": "102"},
+        "Games":{"type": "string",
+          "example": "124"},
+        "Groceries":{"type": "string",
+          "example": "234"},
+        "Households":{"type": "string",
+          "example": "45"},
+        "Insurance":{"type": "string",
+          "example": "234"},
+        "Investments":{"type": "string",
+          "example": "56"},
+        "Medical":{"type": "string",
+          "example": "234"},
+        "Shopping":{"type": "string",
+          "example": "234"}
+
+      }
+    },
+    
     "SavingsJSON": {
       "required": [
         "01",
