@@ -784,7 +784,7 @@
           }
         ],
         "description": "<p>This API returns  monthlywise Transaction list based on Category Spends. It return transaction selected from below Categories of Top 10 Categories 1) Automobile 2) Entertainment 3) Food 4) Games 5) Groceries 6) HouseHolds 7) Insurance 8) Investements 9) Medical 10 Shopping</p>",
-        "operationId": "getCategorySpends",
+        "operationId": "getTransactionSpends",
         "produces": [
 					"application/json"
 				],
@@ -792,7 +792,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/CategorySpendsJSON"
+              "$ref": "#/definitions/TransactionCategoryJSON"
             }
           },
           "400": {
